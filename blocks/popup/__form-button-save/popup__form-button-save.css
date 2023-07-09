@@ -1,4 +1,4 @@
-.edit-form__button-save {
+.popup__form-button-save {
     background: none;
     border: none;
     box-shadow: none;
@@ -12,10 +12,18 @@
     line-height: normal;
     height: 50px;
     border-radius: 2px;
-    margin: 45px 0 0 0;
+    margin: 48px 0 0 0;
 }
 
-.edit-form__button-save:hover {
+.popup__form-button-save:hover {
     opacity: .8;
     transition: 0.5s;
+}
+
+@media screen and (max-width: 900px) {
+    .popup__form-button-save {
+        font-size: 14px;
+        height: 46px;
+        margin: 45px 0 0 0;
+    }
 }

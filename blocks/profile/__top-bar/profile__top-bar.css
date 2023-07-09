@@ -1,7 +1,6 @@
 .profile__top-bar {
     display: flex;
-    align-items: center;
- 
+    align-items: center; 
     margin: 0 0 3px 0;
 }
 

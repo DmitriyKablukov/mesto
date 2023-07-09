@@ -20,53 +20,53 @@
                 <div class="profile__info">
                     <div class="profile__top-bar">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
-                        <div class="profile__edit-button profile__edit-button-open"></div>
+                        <button class="profile__edit-button" type="button" aria-label="Редактирование профиля"></button>
                     </div>
                     <p class="profile__description">Исследователь океана</p>
                 </div>
-                <button class="profile__add-button"></button>
+                <button class="profile__add-button" type="button" aria-label="Добавление новых фото"></button>
             </section>
             <section class="elements">
                 <article class="element">
-                    <img class="element__image" src="images/kirill-pershin-1088404-unsplash.jpg" alt="Изображение карточки">
+                    <img class="element__image" src="images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевск">
                     <div class="element__bottom-bar">
                         <h2 class="element__place-name">Карачаевск</h2>
-                        <div class="element__like-button"></div>
+                        <button class="element__like-button" type="button" aria-label="Отметка мне нравится"></button>
                     </div>
                 </article>
                 <article class="element">
-                    <img class="element__image" src="images/kirill-pershin-1404681-unsplash.png" alt="Изображение карточки">
+                    <img class="element__image" src="images/kirill-pershin-1404681-unsplash.png" alt="Гора Эльбрус">
                     <div class="element__bottom-bar">
                         <h2 class="element__place-name">Гора Эльбрус</h2>
-                        <div class="element__like-button"></div>
+                        <button class="element__like-button" type="button" aria-label="Отметка мне нравится"></button>
                     </div>
                 </article>
                 <article class="element">
-                    <img class="element__image" src="images/kirill-pershin-1556355-unsplash.png" alt="Изображение карточки">
+                    <img class="element__image" src="images/kirill-pershin-1556355-unsplash.png" alt="Домбай">
                     <div class="element__bottom-bar">
                         <h2 class="element__place-name">Домбай</h2>
-                        <div class="element__like-button"></div>
+                        <button class="element__like-button" type="button" aria-label="Отметка мне нравится"></button>
                     </div>
                 </article>
                 <article class="element">
-                    <img class="element__image" src="images/kirill-pershin-1088404-unsplash.jpg" alt="Изображение карточки">
+                    <img class="element__image" src="images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевск">
                     <div class="element__bottom-bar">
                         <h2 class="element__place-name">Карачаевск</h2>
-                        <div class="element__like-button"></div>
+                        <button class="element__like-button" type="button" aria-label="Отметка мне нравится"></button>
                     </div>
                 </article>
                 <article class="element">
-                    <img class="element__image" src="images/kirill-pershin-1404681-unsplash.png" alt="Изображение карточки">
+                    <img class="element__image" src="images/kirill-pershin-1404681-unsplash.png" alt="Гора Эльбрус">
                     <div class="element__bottom-bar">
                         <h2 class="element__place-name">Гора Эльбрус</h2>
-                        <div class="element__like-button"></div>
+                        <button class="element__like-button" type="button" aria-label="Отметка мне нравится"></button>
                     </div>
                 </article>
                 <article class="element">
-                    <img class="element__image" src="images/kirill-pershin-1556355-unsplash.png" alt="Изображение карточки">
+                    <img class="element__image" src="images/kirill-pershin-1556355-unsplash.png" alt="Домбай">
                     <div class="element__bottom-bar">
                         <h2 class="element__place-name">Домбай</h2>
-                        <div class="element__like-button"></div>
+                        <button class="element__like-button" type="button" aria-label="Отметка мне нравится"></button>
                     </div>
                 </article>
             </section>
@@ -74,18 +74,18 @@
         <footer class="footer">
             <p class="footer__copyright">© 2023 Mesto Russia</p>
         </footer>
-        <section class="edit-form">
-            <div class="edit-form__container">
-                <div class="edit-form__close-button"></div>
-                <h2 class="edit-form__title">Редактировать профиль</h2>
-                    <form class="edit-form__place">
-                        <input name="edit-form__name" class="edit-form__name" type="text" value="Жак-Ив Кусто" placeholder="Имя">
-                        <input name="edit-form__description" class="edit-form__description" type="text" value="Исследователь океана" placeholder="Описание">
-                        <button class="edit-form__button-save">Сохранить</button>
+        <div class="popup">
+            <div class="popup__container">
+                <button class="popup__close-button"></button>
+                <h2 class="popup__title">Редактировать профиль</h2>
+                    <form name="form" class="popup__form">
+                        <input name="name" class="popup__input popup__input_data_name" required type="text" placeholder="Имя">
+                        <input name="description" class="popup__input popup__input_data_description" required type="text" placeholder="Описание">
+                        <button class="popup__form-button-save" type="submit">Сохранить</button>
                     </form>
             </div>
-        </section>
+        </div>
     </div>
-    <script src="pages/index.js"></script>
+    <script src="script/index.js"></script>
 </body>
 </html>
