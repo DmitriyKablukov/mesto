@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="normalize.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="/fonts/fonts.css" rel="stylesheet">
+    <meta name="description" content="Четвертый спринт на Яндекс Практикуме: Проект Место">
+    <meta name="keywords" content="html, css, javaccript, yandex practicum">
+    <meta name="author" content="Дмитрий Каблуков">
+    <title>Mesto</title>
+</head>
+<body class="body">
+    <div class="page">
+        <header class="header">
+            <img class="header__logo" src="images/logo.svg" alt="Логотип Место">            
+        </header>
+        <main class="main">
+            <section class="profile">
+                <img class="profile__avatar" src="images/avatar.jpg" alt="Аватар">                
+                <div class="profile__info">
+                    <div class="profile__top-bar">
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <div class="profile__edit-button profile__edit-button-open"></div>
+                    </div>
+                    <p class="profile__description">Исследователь океана</p>                    
+                </div>            
+                <button class="profile__add-button"></button>
+            </section>
+            <section class="elements">
+                <article class="element">
+                    <img class="element__image" src="images/kirill-pershin-1088404-unsplash.jpg" alt="Изображение карточки">
+                    <div class="element__bottom-bar">
+                        <h2 class="element__place-name">Карачаевск</h2>
+                        <div class="element__like-button"></div>
+                    </div>
+                </article>
+                <article class="element">
+                    <img class="element__image" src="images/kirill-pershin-1404681-unsplash.png" alt="Изображение карточки">
+                    <div class="element__bottom-bar">
+                        <h2 class="element__place-name">Гора Эльбрус</h2>
+                        <div class="element__like-button"></div>
+                    </div>
+                </article>
+                <article class="element">
+                    <img class="element__image" src="images/kirill-pershin-1556355-unsplash.png" alt="Изображение карточки">
+                    <div class="element__bottom-bar">
+                        <h2 class="element__place-name">Домбай</h2>
+                        <div class="element__like-button"></div>
+                    </div>
+                </article>
+                <article class="element">
+                    <img class="element__image" src="images/kirill-pershin-1088404-unsplash.jpg" alt="Изображение карточки">
+                    <div class="element__bottom-bar">
+                        <h2 class="element__place-name">Карачаевск</h2>
+                        <div class="element__like-button"></div>
+                    </div>
+                </article>
+                <article class="element">
+                    <img class="element__image" src="images/kirill-pershin-1404681-unsplash.png" alt="Изображение карточки">
+                    <div class="element__bottom-bar">
+                        <h2 class="element__place-name">Гора Эльбрус</h2>
+                        <div class="element__like-button"></div>
+                    </div>
+                </article>
+                <article class="element">
+                    <img class="element__image" src="images/kirill-pershin-1556355-unsplash.png" alt="Изображение карточки">
+                    <div class="element__bottom-bar">
+                        <h2 class="element__place-name">Домбай</h2>
+                        <div class="element__like-button"></div>
+                    </div>
+                </article>
+            </section>            
+        </main>
+        <footer class="footer">
+            <p class="footer__copyright">© 2023 Mesto Russia</p>
+        </footer>
+        <section class="edit-form">
+            <div class="edit-form__container">
+                <div class="edit-form__close-button"></div>
+                <h2 class="edit-form__title">Редактировать профиль</h2>
+                    <form class="edit-form__place">
+                        <input name="edit-form__name" class="edit-form__name" type="text" value="Жак-Ив Кусто" placeholder="Имя">
+                        <input name="edit-form__description" class="edit-form__description" type="text" value="Исследователь океана" placeholder="Описание">
+                        <button class="edit-form__button-save">Сохранить</button>
+                    </form>                
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
