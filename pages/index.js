@@ -1,3 +1,4 @@
+//import '../pages/index.css';
 const editForm = document.querySelector('.edit-form');
 const editButtonOpen = document.querySelector('.profile__edit-button-open');
 const editButtonClose = editForm.querySelector('.edit-form__close-button');
