@@ -8,7 +8,7 @@
 }
 
 @media screen and (max-width: 900px) {
-    .footer__copyrigh {
+    .footer__copyright {
         font-size: 14px;
     }
 }
