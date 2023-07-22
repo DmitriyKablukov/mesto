@@ -7,4 +7,5 @@
     flex-direction: column;
     object-fit: cover;
     justify-self: center;
+    position: relative;
 }
