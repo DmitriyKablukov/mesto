@@ -26,7 +26,7 @@ const initialCards = [
   }
 ];
 //Объявление переменных для popupInfo
-const popupInfo = document.querySelector('.popup__info');
+const popupInfo = document.querySelector('.popup_info');
 const profileEditButton = document.querySelector('.profile__edit-button');
 const popupCloseButtonInfo = popupInfo.querySelector('.popup__close-button_info');
 const popupFormInfo = popupInfo.querySelector('.popup__form_info');
@@ -35,7 +35,7 @@ const userDescription = popupFormInfo.querySelector('.popup__input_data_descript
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
 //Объявление переменных для popupAdd
-const popupAdd = document.querySelector('.popup__add');
+const popupAdd = document.querySelector('.popup_add');
 const profileAddButton = document.querySelector('.profile__add-button');
 const popupCloseButtonAdd = popupAdd.querySelector('.popup__close-button_add');
 const popupFormAdd = popupAdd.querySelector('.popup__form_add');
@@ -46,7 +46,7 @@ const elementTemplate = document.querySelector('.element-template');
 const elements = document.querySelector('.elements');
 const element = elementTemplate.querySelector('.element');
 //Объявление переменных для popupImage
-const popupImage = document.querySelector('.popup__image');
+const popupImage = document.querySelector('.popup_image');
 const placeImage = elements.querySelector('.element__image');
 const popupCloseButtonImage = popupImage.querySelector('.popup__close-button_image');
 const popupImagePicture = popupImage.querySelector('.popup__image-picture');
