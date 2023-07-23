@@ -120,11 +120,12 @@ function createElementTemplate (data) {
       popupImagePicture.alt = data.name
     });
     elements.addEventListener('click', clickLikeButton);
-    popupCloseButtonImage.addEventListener('click', function() {
-      closePopup(popupImage);
-    });
   return placeElement;
 };
+//Слушатель закрытия popupImage
+popupCloseButtonImage.addEventListener('click', function() {
+  closePopup(popupImage);
+});
 //Функция добавления нового элемента
 function createNewElement (evt) {
   evt.preventDefault();
