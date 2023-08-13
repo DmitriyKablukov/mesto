@@ -134,6 +134,8 @@ function createNewElement (evt) {
   const newElement = createElementTemplate({name: placeName.value, link: placeLink.value});
   placeName.value = '';
   placeLink.value = '';
+  evt.submitter.classList.add('popup__form-button-save_invalid');
+  evt.submitter.disabled = true;
   elements.prepend(newElement);
   closePopup(popupAdd);
 }
@@ -157,5 +159,5 @@ function closePopupOverlay (evt) {
 };
 //Слушатель клика на оверлей
 document.querySelectorAll('.popup').forEach( popup => {
-  popup.addEventListener('click', closePopupOverlay);
+  popup.addEventListener('mousedown', closePopupOverlay);
 });
