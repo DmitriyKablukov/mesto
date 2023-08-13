@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="pages/index.css" rel="stylesheet">
-    <meta name="description" content="Четвертый спринт на Яндекс Практикуме: Проект Место">
+    <meta name="description" content="Шестой спринт на Яндекс Практикуме: Проект Место">
     <meta name="keywords" content="html, css, javaccript, yandex practicum">
     <meta name="author" content="Дмитрий Каблуков">
     <title>Mesto</title>
@@ -36,10 +36,12 @@
             <div class="popup__container">
                 <button class="popup__close-button popup__close-button_info" type="button"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
-                    <form name="form" class="popup__form popup__form_info">
-                        <input name="name" class="popup__input popup__input_data_name" required type="text" placeholder="Имя">
-                        <input name="description" class="popup__input popup__input_data_description" required type="text" placeholder="Описание">
-                        <button class="popup__form-button-save popup__form-button-save_info" type="submit">Сохранить</button>
+                    <form name="form" class="popup__form popup__form_info" novalidate>
+                        <input name="name" id="name" class="popup__input popup__input_data_name" required type="text" placeholder="Имя" minlength="2" maxlength="40">
+                        <span class="popup__error" id="name-error"></span>
+                        <input name="description" id="description" class="popup__input popup__input_data_description" required type="text" placeholder="Описание" minlength="2" maxlength="200">
+                        <span class="popup__error" id="description-error"></span>
+                        <button class="popup__form-button-save popup__form-button-save_info" type="submit" disabled>Сохранить</button>
                     </form>
             </div>
         </div>
@@ -47,10 +49,12 @@
             <div class="popup__container">
                 <button class="popup__close-button popup__close-button_add" type="button"></button>
                 <h2 class="popup__title">Новое место</h2>
-                    <form name="form" class="popup__form popup__form_add">
-                        <input name="place" class="popup__input popup__input_data_place" required type="text" placeholder="Название">
-                        <input name="link" class="popup__input popup__input_data_link" required type="text" placeholder="Ссылка на картинку">
-                        <button class="popup__form-button-save popup__form-button-save_add" type="submit">Создать</button>
+                    <form name="form" class="popup__form popup__form_add" novalidate>
+                        <input name="place" id="place" class="popup__input popup__input_data_place" required type="text" placeholder="Название" minlength="2" maxlength="30">
+                        <span class="popup__error" id="place-error"></span>
+                        <input name="link" id="link" class="popup__input popup__input_data_link" required type="url" placeholder="Ссылка на картинку">
+                        <span class="popup__error" id="link-error"></span>
+                        <button class="popup__form-button-save popup__form-button-save_add" type="submit" disabled>Создать</button>
                     </form>
             </div>
         </div>
@@ -73,5 +77,6 @@
         </article>
       </template>
     <script src="script/index.js"></script>
+   <script src="script/validate.js"></script>
 </body>
 </html>

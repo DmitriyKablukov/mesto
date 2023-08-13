@@ -3,6 +3,7 @@
     flex-direction: column;
     margin: 0 auto 37px auto;
     max-width: 358px;
+    position: relative;
 }
 
 @media screen and (max-width: 900px) {

@@ -54,10 +54,12 @@ const popupImagePlaceName = popupImage.querySelector('.popup__image-place-name')
 //Функция открытия модального окна
 function openPopup(item) {
   item.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEsc);
 };
 //Функция закрытия модального окна
 function closePopup(item){
   item.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupEsc);
 };
 //Функция добавления информации при открытии popupInfo
 const editFormToggle = function(){
@@ -142,4 +144,18 @@ function deleteElement (e) {
   const el = e.target.closest('.element');
   el.remove();
 };
-
+//Функция закрытия модального окна по нажатию клавиши Esc
+function closePopupEsc(evt) {
+  const popupOpened = document.querySelector('.popup_opened');
+  if(evt.key === 'Escape') {
+    closePopup(popupOpened);
+  }
+};
+//Функция закрытия модального окна по нажатию на оверлей
+function closePopupOverlay (evt) {
+  if (evt.target === evt.currentTarget) closePopup(evt.currentTarget);
+};
+//Слушатель клика на оверлей
+document.querySelectorAll('.popup').forEach( popup => {
+  popup.addEventListener('click', closePopupOverlay);
+});
