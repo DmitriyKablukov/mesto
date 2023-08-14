@@ -10,16 +10,22 @@
     errorMessage.classList.remove(validationSettings.errorClass);
     errorMessage.textContent = "";
   };
-//Функция блокировки кнопки
-  const invalidButton = (formElement, submitButton, validationSettings) => {
-    if (formElement.checkValidity()) {
-        submitButton.removeAttribute("disabled");
-        submitButton.classList.remove(validationSettings.inactiveButtonClass);
-    } else {
-        submitButton.setAttribute("disabled", "");
-        submitButton.classList.add(validationSettings.inactiveButtonClass);
-    }
-  };
+//Функции блокировки кнопки
+const enableButton = (submitButton, validationSettings) => {
+  submitButton.removeAttribute("disabled");
+  submitButton.classList.remove(validationSettings.inactiveButtonClass);
+};
+const disableButton = (submitButton, validationSettings) => {
+  submitButton.setAttribute("disabled", "");
+  submitButton.classList.add(validationSettings.inactiveButtonClass);
+};
+const invalidButton = (formElement, submitButton, validationSettings) => {
+  if (formElement.checkValidity()) {
+    enableButton(submitButton, validationSettings);
+  } else {
+    disableButton(submitButton, validationSettings);
+  }
+};
 //Функция проверки поля
   function validateInput(inputElement, validationSettings) {
     const errorElement = document.querySelector(`#${inputElement.id}-error`);
