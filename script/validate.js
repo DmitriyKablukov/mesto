@@ -11,13 +11,13 @@
     errorMessage.textContent = "";
   };
 //Функции блокировки кнопки
-const enableButton = (submitButton, validationSettings) => {
+const enableButton = (submitButton) => {
   submitButton.removeAttribute("disabled");
-  submitButton.classList.remove(validationSettings.inactiveButtonClass);
+  submitButton.classList.remove('popup__form-button-save_invalid');
 };
-const disableButton = (submitButton, validationSettings) => {
+const disableButton = (submitButton) => {
   submitButton.setAttribute("disabled", "");
-  submitButton.classList.add(validationSettings.inactiveButtonClass);
+  submitButton.classList.add('popup__form-button-save_invalid');
 };
 const invalidButton = (formElement, submitButton, validationSettings) => {
   if (formElement.checkValidity()) {

@@ -134,9 +134,7 @@ function createNewElement (evt) {
   const newElement = createElementTemplate({name: placeName.value, link: placeLink.value});
   placeName.value = '';
   placeLink.value = '';
-  disableButton(evt.submitter, "");//блокировка кнопки не работает должным образом
-  //evt.submitter.classList.add('popup__form-button-save_invalid');
-  //evt.submitter.disabled = true;
+  disableButton(evt.submitter);
   elements.prepend(newElement);
   closePopup(popupAdd);
 }
