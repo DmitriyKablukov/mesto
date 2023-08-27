@@ -98,7 +98,6 @@ function createNewElement (evt) {
   const newElement = new Card({name: placeName.value, link: placeLink.value});
   placeName.value = '';
   placeLink.value = '';
-  //disableButton(evt.submitter);//ПОЧИНИТЬ КНОПКУ БЛОКИРОВКИ
   elements.prepend(newElement.createCard());
   closePopup(popupAdd);
 }
