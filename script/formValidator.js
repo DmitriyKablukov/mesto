@@ -1,75 +1,83 @@
 class FormValidator {
-  constructor ( settings, formElement) {
-    this._settings = settings;
+  constructor(settings, formElement) {
     this._formElement = formElement;
-    this._formSelector = settings.formSelector;
     this._inputSelector = settings.inputSelector;
     this._submitButtonSelector = settings.submitButtonSelector;
     this._inactiveButtonClass = settings.inactiveButtonClass;
     this._inputErrorClass = settings.inputErrorClass;
     this._errorClass = settings.errorClass;
-    this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));;
-    this._buttonElement = this._formElement.querySelector(this._submitButtonSelector)
+    this._inputList = Array.from(
+      this._formElement.querySelectorAll(this._inputSelector)
+    );
+    this._buttonElement = this._formElement.querySelector(
+      this._submitButtonSelector
+    );
   }
-//Добавление ошибки
-_addError (inputElement, errorMessage) {
-  inputElement.classList.add(this._inputErrorClass);
-  const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add(this._errorClass);
-};
-//Удаление ошибки
-_removeError (inputElement) {
-  inputElement.classList.remove(this._inputErrorClass);
-  const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
-  errorElement.classList.remove(this._errorClass);
-  errorElement.textContent = '';
-};
-//Проверка поля
-_validateInput (inputElement) {
-  if (!inputElement.validity.valid) {
-    this._addError(inputElement, inputElement.validationMessage);
-  } else {
-     this._removeError(inputElement);
+  //Добавление ошибки
+  _addError(inputElement, errorMessage) {
+    inputElement.classList.add(this._inputErrorClass);
+    const errorElement = this._formElement.querySelector(
+      `#${inputElement.id}-error`
+    );
+    errorElement.textContent = errorMessage;
+    errorElement.classList.add(this._errorClass);
   }
-};
-//Включение кнопки
-_enableButton () {
-  this._buttonElement.classList.remove(this._inactiveButtonClass);
-  this._buttonElement.disabled = false;
-}
-//Отключение кнопки
-_disableButton () {
-  this._buttonElement.classList.add(this._inactiveButtonClass);
-  this._buttonElement.disabled = true;
-}
-//Проверка валидности полей
-_invalidButton () {
-  if (this._inputList.some((inputElement)=> {
-    return !inputElement.validity.valid;
-  })) {
-    this._disableButton ();
+  //Удаление ошибки
+  _removeError(inputElement) {
+    inputElement.classList.remove(this._inputErrorClass);
+    const errorElement = this._formElement.querySelector(
+      `#${inputElement.id}-error`
+    );
+    errorElement.classList.remove(this._errorClass);
+    errorElement.textContent = "";
   }
-  else {
-    this._enableButton ();
+  //Проверка поля
+  _validateInput(inputElement) {
+    if (!inputElement.validity.valid) {
+      this._addError(inputElement, inputElement.validationMessage);
+    } else {
+      this._removeError(inputElement);
+    }
   }
-}
-//Установка слушателя на все поля
-_eventListeners () {
-  this._inputList.forEach (inputElement => {
-    inputElement.addEventListener ('input', () => {
-      this._validateInput(inputElement)
-      this._invalidButton();
+  //Включение кнопки
+  _enableButton() {
+    this._buttonElement.classList.remove(this._inactiveButtonClass);
+    this._buttonElement.disabled = false;
+  }
+  //Отключение кнопки
+  disableButton() {
+    this._buttonElement.classList.add(this._inactiveButtonClass);
+    this._buttonElement.disabled = true;
+  }
+  //Проверка валидности полей
+  _hasInvalidInput() {
+    return this._inputList.some((inputElement) => {
+      return !inputElement.validity.valid;
     });
-  });
-};
-//Включение валидации
-enableValidation() {
-    this._formElement.addEventListener('submit', (evt) =>{
-      evt.preventDefault()
+  }
+  //Переключение кнопки
+  _toggleSubmitButton() {
+    if (this._hasInvalidInput(this._inputList)) {
+      this.disableButton();
+    } else {
+      this._enableButton();
+    }
+  }
+  //Установка слушателя на все поля
+  _setEventListeners() {
+    this._inputList.forEach((inputElement) => {
+      inputElement.addEventListener("input", () => {
+        this._validateInput(inputElement);
+        this._toggleSubmitButton();
+      });
     });
-  this._eventListeners();
-}
+  }
+  //Включение валидации
+  enableValidation() {
+    this._formElement.addEventListener("submit", (evt) => {
+    });
+    this._setEventListeners();
+  }
 }
 
 export default FormValidator;
