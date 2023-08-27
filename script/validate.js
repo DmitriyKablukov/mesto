@@ -1,15 +1,4 @@
-//Функция добавления ошибки
-  const addError = (inputElement, errorMessage, validationSettings) => {
-    inputElement.classList.add(validationSettings.inputErrorClass);
-    errorMessage.classList.add(validationSettings.errorClass);
-    errorMessage.textContent = inputElement.validationMessage;
-  };
-//Функция удаления ошибки
-  const removeError = (inputElement, errorMessage, validationSettings) => {
-    inputElement.classList.remove(validationSettings.inputErrorClass);
-    errorMessage.classList.remove(validationSettings.errorClass);
-    errorMessage.textContent = "";
-  };
+
 //Функции блокировки кнопки
 const enableButton = (submitButton) => {
   submitButton.removeAttribute("disabled");
@@ -26,6 +15,8 @@ const invalidButton = (formElement, submitButton, validationSettings) => {
     disableButton(submitButton, validationSettings);
   }
 };
+
+
 //Функция проверки поля
   function validateInput(inputElement, validationSettings) {
     const errorElement = document.querySelector(`#${inputElement.id}-error`);
@@ -62,3 +53,4 @@ const invalidButton = (formElement, submitButton, validationSettings) => {
     inputErrorClass: 'popup__input_invalid',
     errorClass: 'popup__error'
   });
+  

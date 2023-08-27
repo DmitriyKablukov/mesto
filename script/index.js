@@ -1,7 +1,7 @@
 import { initialCards } from "./elements.js";
+import { settings } from "./validationSettings.js";
 import Card from "./card.js";
-//import FormValidator from "./FormValidator.js";
-
+import FormValidator from "./formValidator.js";
 
 //Объявление переменных для popupInfo
 const popupInfo = document.querySelector('.popup_info');
@@ -104,7 +104,13 @@ function createNewElement (evt) {
 }
 //Слушатель события отправки popupAdd
 popupFormAdd.addEventListener('submit', createNewElement);
+//Добавление валидации на попапы
+const popupAddForm = document.forms.info;
+const validationAdd = new FormValidator(settings, popupAddForm);
+validationAdd.enableValidation();
 
-//НЕОБХОДИМО ОТРЕДАКТИРОВАТЬ ИМПОРТЫ
-//export {openPopup, closePopup, closePopupEsc, closePopupOverlay, popupImage}
+const popupImageForm = document.forms.add;
+const validationImage = new FormValidator(settings, popupImageForm);
+validationImage.enableValidation();
+
 export {openPopup, popupImage}

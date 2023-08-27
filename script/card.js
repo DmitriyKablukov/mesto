@@ -39,7 +39,7 @@ class Card {
     const popupImagePicture = popupImage.querySelector(".popup__image-picture");
     openPopup(popupImage);
     popupImagePicture.src = this._link;
-    popupImagePlaceName.alt = this._name;
+    popupImagePicture.alt = this._name;
     popupImagePlaceName.textContent = this._name;
   }
 //Слушатели удаления, лайка, открытия
