@@ -94,19 +94,19 @@ popupCloseButtonAdd.addEventListener("click", function () {
   closePopup(popupAdd);
 });
 //Функция создания новой карточки
-function addCard(item) {
+function createCard(item) {
   const card = new Card(item, ".element-template");
   return card.createCard();
 }
 //Добавление элементов по умолчанию
 initialCards.forEach((item) => {
-  cardsContainer.append(addCard(item));
+  cardsContainer.append(createCard(item));
 });
 //Функция добавления нового элемента
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
   cardsContainer.prepend(
-    addCard({ name: placeNameInput.value, link: placeLinkInput.value })
+    createCard({ name: placeNameInput.value, link: placeLinkInput.value })
   );
   popupFormAdd.reset();
   validationImage.disableButton();
@@ -115,9 +115,9 @@ function handleCardFormSubmit(evt) {
 //Слушатель события отправки popupAdd
 popupFormAdd.addEventListener("submit", handleCardFormSubmit);
 //Добавление валидации на попапы
-const popupAddForm = document.forms.info;
-const validationAdd = new FormValidator(settings, popupAddForm);
-validationAdd.enableValidation();
+const profileForm = document.forms.info;
+const profileFormValidator = new FormValidator(settings, profileForm);
+profileFormValidator.enableValidation();
 const popupImageForm = document.forms.add;
 const validationImage = new FormValidator(settings, popupImageForm);
 validationImage.enableValidation();

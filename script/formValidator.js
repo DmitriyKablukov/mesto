@@ -57,7 +57,7 @@ class FormValidator {
   }
   //Переключение кнопки
   _toggleSubmitButton() {
-    if (this._hasInvalidInput(this._inputList)) {
+    if (this._hasInvalidInput()) {
       this.disableButton();
     } else {
       this._enableButton();
@@ -74,8 +74,6 @@ class FormValidator {
   }
   //Включение валидации
   enableValidation() {
-    this._formElement.addEventListener("submit", (evt) => {
-    });
     this._setEventListeners();
   }
 }
