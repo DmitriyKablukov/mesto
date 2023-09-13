@@ -1,6 +1,6 @@
 class Popup {
-  constructor(popupSelector) {
-    this._popup = popupSelector;
+  constructor(popup) {
+    this._popup = popup;
     this._handleEscClose = this._handleEscClose.bind(this);
   }
 
@@ -28,7 +28,7 @@ class Popup {
         evt.target.classList.contains("popup__close-button") ||
         evt.target.classList.contains("popup")
       ) {
-        this.close(evt.target);
+        this.close();
       }
     });
   }

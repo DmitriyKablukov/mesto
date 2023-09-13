@@ -11,48 +11,37 @@ import UserInfo from "../components/UserInfo.js";
 import {
   popupInfo,
   profileEditButton,
-  popupCloseButtonInfo,
-  popupFormInfo,
   userNameInput,
   userDescriptionInput,
   profileName,
   profileDescription,
   popupAdd,
   profileAddButton,
-  popupCloseButtonAdd,
-  popupFormAdd,
-  placeNameInput,
-  placeLinkInput,
-  cardsContainer,
   popupImage,
-  popupCloseButtonImage,
-  popupImagePlaceName,
-  popupImagePicture,
-  popupList,
 } from "../utils/constants.js";
 
 //Функционал попапа добавления карточки
-const openAddPopup = new PopupWithForm({
-  popupSelector: popupAdd,
+const popupAddCard = new PopupWithForm({
+  popup: popupAdd,
   handleFormSubmit: (formItem) => {
-    cardsList.addItem(generateCard(formItem));
-    openAddPopup.close();
+    cardsSection.addItem(generateCard(formItem));
+    popupAddCard.close();
   },
 });
 
 profileAddButton.addEventListener("click", () => {
-  openAddPopup.open();
+  popupAddCard.open();
   validationImage.disableButton();
 });
 
-openAddPopup.setEventListeners();
+popupAddCard.setEventListeners();
 
 //Функционал попапа редактирования информации
-const openEditProfilePopup = new PopupWithForm({
-  popupSelector: popupInfo,
+const popupEditProfile = new PopupWithForm({
+  popup: popupInfo,
   handleFormSubmit: (data) => {
     userInfo.setUserInfo(data);
-    openEditProfilePopup.close();
+    popupEditProfile.close();
   },
 });
 
@@ -61,14 +50,16 @@ const userInfo = new UserInfo({
   profileDescription: profileDescription,
 });
 
-profileEditButton.addEventListener("click", () => {
-  openEditProfilePopup.open();
+const addUserInfo = () => {
+  popupEditProfile.open();
   const user = userInfo.getUserInfo();
   userNameInput.value = user.profileName;
   userDescriptionInput.value = user.profileDescription;
-});
+};
 
-openEditProfilePopup.setEventListeners();
+profileEditButton.addEventListener("click", addUserInfo);
+
+popupEditProfile.setEventListeners();
 
 //Открытие попапа с изображением
 const popupImageFullView = new PopupWithImage(popupImage);
@@ -80,26 +71,26 @@ function handleCardClick(item) {
 popupImageFullView.setEventListeners();
 
 //Создание новой карточки
-function generateCard(item) {
-  const card = new Card(item, ".element-template", (data) =>
+function generateCard(cardData) {
+  const card = new Card(cardData, ".element-template", (data) =>
     handleCardClick(data)
   );
   return card.createCard();
 }
 
 //Добавление элементов по умолчанию
-const cardsList = new Section(
+const cardsSection = new Section(
   {
     items: initialCards,
     renderer: (item) => {
       const card = generateCard(item);
-      cardsList.addItem(card);
+      cardsSection.addItem(card);
     },
   },
   ".elements"
 );
 
-cardsList.renderItems();
+cardsSection.renderItems();
 
 //Включение валидации
 const profileForm = document.forms.info;
