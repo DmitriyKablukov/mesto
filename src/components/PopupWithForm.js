@@ -6,6 +6,8 @@ class PopupWithForm extends Popup {
     this._form = this._popup.querySelector(".popup__form");
     this._inputs = this._form.querySelectorAll(".popup__input");
     this._handleFormSubmit = handleFormSubmit;
+    this._submitButton = this._form.querySelector(".popup__form-button-save");
+    this._submitButtonText = this._submitButton.textContent;
   }
   //Получение данных из формы
   _getInputValues() {
@@ -16,6 +18,19 @@ class PopupWithForm extends Popup {
     });
     return this._formValues;
   }
+  //Закрытие попапа
+  close() {
+    super.close();
+    this._form.reset();
+  }
+  //Функционал при нажатии на кнопку submit
+  renderLoading(isLoading, loadingText = "Сохранение...") {
+    if (isLoading) {
+      this._submitButton.textContent = loadingText;
+    } else {
+      this._submitButton.textContent = this._submitButtonText;
+    }
+  }
   //Установка слушателей на отправку формы
   setEventListeners() {
     this._form.addEventListener("submit", (evt) => {
@@ -23,11 +38,6 @@ class PopupWithForm extends Popup {
       this._handleFormSubmit(this._getInputValues());
     });
     super.setEventListeners();
-  }
-  //Закрытие попапа
-  close() {
-    super.close();
-    this._form.reset();
   }
 }
 

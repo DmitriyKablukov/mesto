@@ -1,20 +1,17 @@
-export const popupInfo = document.querySelector(".popup_info");
 export const profileEditButton = document.querySelector(".profile__edit-button");
-export const popupCloseButtonInfo = popupInfo.querySelector(".popup__close-button_info");
-export const popupFormInfo = popupInfo.querySelector(".popup__form_info");
-export const userNameInput = popupFormInfo.querySelector(".popup__input_data_name");
-export const userDescriptionInput = popupFormInfo.querySelector(".popup__input_data_description");
 export const profileName = document.querySelector(".profile__name");
 export const profileDescription = document.querySelector(".profile__description");
-export const popupAdd = document.querySelector(".popup_add");
+export const profileAvatar = document.querySelector(".profile__avatar");
+export const popupInfo = document.querySelector(".popup_info");
+export const userNameInput = document.querySelector(".popup__input_data_name");
+export const userDescriptionInput = document.querySelector(".popup__input_data_description");
 export const profileAddButton = document.querySelector(".profile__add-button");
-export const popupCloseButtonAdd = popupAdd.querySelector(".popup__close-button_add");
-export const popupFormAdd = popupAdd.querySelector(".popup__form_add");
-export const placeNameInput = popupFormAdd.querySelector(".popup__input_data_place");
-export const placeLinkInput = popupFormAdd.querySelector(".popup__input_data_link");
-export const cardsContainer = document.querySelector(".elements");
+export const popupAdd = document.querySelector(".popup_add");
 export const popupImage = document.querySelector(".popup_image");
-export const popupCloseButtonImage = popupImage.querySelector(".popup__close-button_image");
-export const popupImagePlaceName = popupImage.querySelector(".popup__image-place-name");
-export const popupImagePicture = popupImage.querySelector(".popup__image-picture");
-export const popupList = document.querySelectorAll(".popup");
+export const popupAvatar = document.querySelector(".popup_avatar");
+export const popupDelete = document.querySelector(".popup_delete");
+
+
+
+
+

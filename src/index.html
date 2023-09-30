@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<link href="pages/index.css" rel="stylesheet">-->
-    <meta name="description" content="Седьмой спринт на Яндекс Практикуме: Проект Место">
-    <meta name="keywords" content="html, css, javascript, oop, yandex practicum">
+    <meta name="description" content="Девятый спринт на Яндекс Практикуме: Проект Место">
+    <meta name="keywords" content="html, css, javascript, oop, webpack, yandex practicum">
     <meta name="author" content="Дмитрий Каблуков">
     <title>Mesto</title>
 </head>
@@ -16,7 +15,9 @@
         </header>
         <main class="main">
             <section class="profile">
-                <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватар">
+                <button class="profile__avatar-edit" type="button">
+                    <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватар">
+                </button>
                 <div class="profile__info">
                     <div class="profile__top-bar">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -65,6 +66,26 @@
                 <p class="popup__image-place-name"></p>
             </div>
         </div>
+        <div class="popup popup_delete">
+            <div class="popup__container">
+                <button class="popup__close-button popup__close-button_delete" type="button"></button>
+                <h2 class="popup__title popup__delete-title">Вы уверены?</h2>
+                <form name="delete" class="popup__form popup__form_delete" novalidate>
+                    <button class="popup__button-delete popup__form-button-save" type="submit">Да</button>
+                </form>
+            </div>
+        </div>
+        <div class="popup popup_avatar">
+            <div class="popup__container">
+                <button class="popup__close-button popup__close-button_avatar" type="button"></button>
+                <h2 class="popup__title">Обновить аватар</h2>
+                    <form name="avatar" class="popup__form popup__form_avatar" novalidate>
+                        <input name="link" id="link" class="popup__input popup__input_avatar_link" required type="url" placeholder="Ссылка на аватар">
+                        <span class="popup__error" id="link-error"></span>
+                        <button class="popup__form-button-save popup__form-button-save_avatar popup__form-button-save_invalid" type="submit" disabled>Сохранить</button>
+                    </form>
+            </div>
+        </div>
     </div>
     <template class="element-template">
         <article class="element">
@@ -72,10 +93,12 @@
             <img class="element__image" src="#" alt="#">
             <div class="element__bottom-bar">
                 <h2 class="element__place-name"></h2>
-                <button class="element__like-button" type="button" aria-label="Отметка мне нравится"></button>
+                <div class="element__like">
+                  <button class="element__like-button" type="button" aria-label="Отметка мне нравится"></button>
+                  <p class="element__like-counter"></p>
+                </div>
             </div>
         </article>
       </template>
-    <!--<script type="module" src="pages/index.js" defer></script>-->
 </body>
 </html>
